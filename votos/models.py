@@ -24,17 +24,21 @@ class Distrito(models.Model):
 
 class Candidato(models.Model):
     """
-    #TODO Completar segun consideraciones del desarrollador
-    En este comentario escribir por que se decide modelar de esta
-    forma la clase
+    Se modela de esta forma, para usar el atributo lista como el codigo que aparecera en el voto.
+    El nombre, partido y edad, son atributos que se mostraran en una lista de candidatos.
     """
-    pass
+    lista = models.CharField(max_length=10)
+    nombre = models.CharField(max_length=50)
+    partido = models.CharField(max_length=30)
+    edad = models.IntegerField()
+
 
 
 class Votos(models.Model):
     """
-    #TODO Completar segun consideraciones del desarrollador
-    En este comentario escribir por que se decide modelar de esta
-    forma la clase
+    Cuando un usuario se presenta tiene que ingresar su numero de documento obligatoriamente,
+    si el numero de documento es nulo, el usuario no voto.
+
     """
-    pass
+    nro_documento = models.IntegerField(default=0)
+    lista = Candidato.objects.all()
