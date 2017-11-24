@@ -7,7 +7,14 @@
 
 <!--Si la url esta bien escrita, este codigo es funcional -->
 
-{% for distrito in distritos %}
+{% for distritos in context %}
+
 <a href="{% url 'distrital' %}">{{distrito}}</a><br>
+
+{% endfor %}
+
+{% for voto in votos %}
+
+{{ voto.lista }}
 
 {% endfor %}

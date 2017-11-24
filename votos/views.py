@@ -19,7 +19,13 @@ def resultado_global(request):
     """
     context={}
     context['distritos'] = Distrito.objects.all()
-    #TODO TU CODIGO AQUI
+    #TODO TU CODIGO AQUI      
+
+    arr_votos_p_cand={}
+    arr_votos_p_cand['votos'] = Votos.objects.filter()
+    
+
+    
 
     return render(request,'global.html',context)
 

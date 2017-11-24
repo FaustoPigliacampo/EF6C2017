@@ -31,14 +31,16 @@ class Candidato(models.Model):
     nombre = models.CharField(max_length=50)
     partido = models.CharField(max_length=30)
     edad = models.IntegerField()
+    cantidad_votos = models.IntegerField()
 
 
 
 class Votos(models.Model):
     """
     Cuando un usuario se presenta tiene que ingresar su numero de documento obligatoriamente,
-    si el numero de documento es nulo, el usuario no voto.
-
+    si el numero de documento es 0, el usuario no voto.
+    La lista, es el ForeignKey a cada candidato. Si no se selecciona ninguna lista, el usuario no voto
     """
     nro_documento = models.IntegerField(default=0)
-    lista = Candidato.objects.all()
+    lista = models.ForeignKey(Candidato)
+
